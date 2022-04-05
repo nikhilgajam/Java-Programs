@@ -12,27 +12,59 @@ public class Jp {
         System.out.println("");
         primes(x);
 
+        System.out.println("");
+        primesRange(50, 100);
+
     }
 
     public static void primes(int num){
 
-        int count;
+        int flag = 0;   // 0 means true
 
-        for(int i=1; i<=num; i++){
+        for(int i=2; i<=num; i++){
 
-            count = 0;
+            flag = 0;
 
-            for(int j=1; j<=num; j++){
+            for(int j=2; j<=Math.sqrt(i); j++){
+
                 if(i%j == 0){
-
-                    count++;
-
+                    flag = 1;
+                    break;
                 }
+
             }
 
-            if(count == 2){
+            if(flag == 0){
                 System.out.println(i);
             }
+
+        }
+
+    }
+
+    public static boolean isPrime(int num){
+
+        if(num == 1)
+            return false;
+
+        for(int i=2; i<=Math.sqrt(num); i++){
+
+            if(num%i == 0){
+                return false;
+            }
+
+        }
+
+        return true;
+
+    }
+
+    public static void primesRange(int start, int end){
+
+        for(int i=start; i<=end; i++){
+
+            if(isPrime(i))
+                System.out.println(i);
 
         }
 
