@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Jp {
+    
 
     public static void main(String[] args){
 
@@ -15,20 +16,24 @@ public class Jp {
 
     public static void prime_or_not(int num){
 
-        int count = 0;
+        int flag = 0;   // 0 means true
 
-        for(int i=1; i<=num; i++){
+        if(num == 1)
+            flag = 1;
+
+        for(int i=2; i<=Math.sqrt(num); i++){
 
             if(num%i == 0){
-                count++;
+                flag = 1;
+                break;
             }
 
         }
 
-        if(count == 2){
+        if(flag == 0){
             System.out.println(num + " is a Prime Number");
         }else{
-            System.out.println(num + " is a Ordinary Number");
+            System.out.println(num + " is an Ordinary Number");
         }
 
     }
