@@ -12,10 +12,25 @@ public class Jp {
         System.out.print("Enter number 2: ");
         y = in.nextInt();
 
-        z = Gcd(x, y);
+        // z = Gcd(x, y);
+        z = gcdEuclidean(x, y);
 
         System.out.println("\nGCD : " + z);
 
+
+    }
+
+    public static int gcdEuclidean(int a, int b){
+
+        int c;
+        
+        while(b != 0){
+            c = a%b;
+            a = b;
+            b = c;
+        }
+
+        return a;
 
     }
 
