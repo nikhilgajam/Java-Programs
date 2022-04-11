@@ -8,6 +8,10 @@ public class Jp{
         System.out.println("Maze Path Count: " + x);
         x = countPathMazeNXM(4, 3, 0, 0);
         System.out.println("Maze Path With N Rows & M Columns Count: " + x);
+        x = friendsPairing(4);
+        System.out.println("Pairing friends ways: " + x);
+        x = tilingWays(4);
+        System.out.println("Tiling Ways Count: " + x);
 
     }
 
@@ -55,6 +59,26 @@ public class Jp{
             return 0;
 
         return countPathMazeNXM(n, m, i+1, j) + countPathMazeNXM(n, m, i, j+1);
+
+    }
+
+    public static int friendsPairing(int n){
+
+        // If we want to pair a person with another we will have n-2 but how many ways i.e., n-1 ways
+        if(n == 0 || n == 1 || n == 2)
+            return n;
+
+        return friendsPairing(n-1) + friendsPairing(n-2)*(n-1);
+
+    }
+
+    public static int tilingWays(int n){
+
+        // If we place a tile vertically then n-1 or horizontally then n-2 ways (So it is fibonacci program)
+        if(n == 0 || n == 1)
+            return n;
+
+        return tilingWays(n-1) + tilingWays(n-2);
 
     }
 
