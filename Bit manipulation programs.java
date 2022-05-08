@@ -150,4 +150,11 @@ public class Jp{
 
     }
 
+    public static int addWithOutPlus(int a, int b){
+        if(b == 0)
+            return a;
+        else
+            return addWithOutPlus(a^b, (a&b) << 1);
+    }
+
 }
